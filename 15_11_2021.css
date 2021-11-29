@@ -20,7 +20,7 @@
     }
 
     li:first child {
-        border: thick solid green;
+        border: thick solid red;
         margin-bottom: 1em;
         margin-top: 1em;
         padding: 1ex;
