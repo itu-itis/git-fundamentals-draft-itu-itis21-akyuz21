@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Local Time</title>
+    <script>
+       async function get_cities() {
+      let continent = document.querySelector("#mycontinent").value;
+          let url = http://uyar.pythonanywhere.com/cities?region=" + region
+          let response = await fetch(url);
+         let result = await response.text();
+         document.querySelector("#mycity").innerHTML = result;
+         document.querySelector("#mycmdcity").disabled = false;
+    </script>
+  </head>
+  
+  <body>
+    <form>
+      <label> Select Continent: </label>
+      <select id="mycontinent" onchange="get_cities();">
+        <option value="Africa">Africa</option>
+        <option value="America">America</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Pacific">Pacific</option>
+      </select>
+      
+      <label>Select City: </label>
+      <select disabled>
+        <option> </option>
+      </select>
+      
+      <button>Show Local Time</button>
+      <p id="my_local_time"></p>
+      
+      
+      
+      
+    </form>
+  </body>
+</html>
