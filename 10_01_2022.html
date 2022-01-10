@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8"/>
     <title>Local Time</title>
@@ -11,14 +11,23 @@
           let response = await fetch(url);
          let result = await response.text();
          document.querySelector("#mycity").innerHTML = result;
-         document.querySelector("#mycmdcity").disabled = false;
+         document.querySelector("#mycity").disabled = false;
+       }
+      
+      async function show_time() {
+        let zone = document.querySelector(#"mycity").value;
+        let url = "http://uyar.pythonanywhere.com/time?zone=" + zone;
+        let response = await fetch(url);
+        let result = await response.text();
+        document.querySelector("#result").innerHTML = result;
+      }
     </script>
   </head>
   
   <body>
-    <form>
-      <label> Select Continent: </label>
-      <select id="mycontinent" onchange="get_cities();">
+    <form action="." method="POST" onsubmit="event.preventDefault(); show_time();">
+      <label for="mycontinent">Select Continent: </label>
+      <select id="mycontinent" name="region" onchange="get_cities();">
         <option value="Africa">Africa</option>
         <option value="America">America</option>
         <option value="Asia">Asia</option>
@@ -26,17 +35,13 @@
         <option value="Pacific">Pacific</option>
       </select>
       
-      <label>Select City: </label>
-      <select disabled>
-        <option> </option>
+      <label for="mycity">Select City: </label>
+      <select id="city" name="zone" disabled>
       </select>
       
       <button>Show Local Time</button>
-      <p id="my_local_time"></p>
-      
-      
-      
-      
+
     </form>
+    <p id="result"></p>
   </body>
 </html>
