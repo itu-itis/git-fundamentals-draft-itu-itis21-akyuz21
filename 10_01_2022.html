@@ -7,7 +7,7 @@
     <script>
        async function get_cities() {
       let region = document.querySelector("#mycontinent").value;
-          let url = http://uyar.pythonanywhere.com/cities?region=" + region
+          let url = "http://uyar.pythonanywhere.com/cities?region=" + region
           let response = await fetch(url);
          let result = await response.text();
          document.querySelector("#mycity").innerHTML = result;
